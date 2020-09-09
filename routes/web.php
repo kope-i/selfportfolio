@@ -23,3 +23,6 @@ Route::middleware('auth')->group(function () {
     Route::get('me', 'UserController@edit');
     Route::post('me', 'UserController@update')->name('users.update');
 });
+
+Route::middleware('auth')->get('posts/create', 'PostController@create')->name('posts.create');
+Route::middleware('auth')->post('posts/store', 'PostController@store')->name('posts.store');
