@@ -24,5 +24,10 @@ Route::middleware('auth')->group(function () {
     Route::post('me', 'UserController@update')->name('users.update');
 });
 
-Route::middleware('auth')->get('posts/create', 'PostController@create')->name('posts.create');
-Route::middleware('auth')->post('posts/store', 'PostController@store')->name('posts.store');
+Route::middleware('auth')->prefix('posts')->as('posts.')->group(function () {
+    Route::get('create', 'PostController@create')->name('create');
+    Route::post('store', 'PostController@store')->name('store');
+    Route::post('{post}/delete', 'PostController@delete')->name('delete');
+});
+
+

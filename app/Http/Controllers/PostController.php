@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::with(['user'])->latest()->get();
 
         return view('index', ['posts' => $posts]);
     }
@@ -28,5 +28,12 @@ class PostController extends Controller
         $post->save();
 
         return redirect()->to('/'); // '/' へリダイレクト
+    }
+
+    public function delete(Post $post)
+    {
+        $post->delete();
+
+        return redirect()->to('/');
     }
 }

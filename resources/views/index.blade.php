@@ -7,6 +7,10 @@
       <div class="content">
         <div class="header">{{ $post->title }}</div>
         <div class="description">{{ $post->description }}</div>
+        <form method="POST" action="{{ route('posts.delete', $post->id) }}">
+            @csrf
+            <button type="submit" class="btn btn-danger">削除</button>
+          </form>
       </div>    
     @endforeach
   
