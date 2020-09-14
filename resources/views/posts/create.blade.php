@@ -19,11 +19,13 @@
       <option value='2'>写真</option>
       <option value='3'>動画</option>
     </select>
+    <!--
     <select id="category_style_id" name="category_style_id" type="integer">
       @foreach($category_styles as $id => $name)
         <option value="{{ $id }}">{{ $name }}</option>
       @endforeach
     </select>
+    -->
     <button type="submit">投稿する</button>
   </form>
 @endsection
