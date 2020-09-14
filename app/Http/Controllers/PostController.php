@@ -21,12 +21,11 @@ class PostController extends Controller
     {
         $category_stage = new CategoryStage;
         $category_stages = $category_stage->getLists()->prepend('選択', '');
-        return view('posts.create', ['category_stages' => $category_stages]);
-
         $category_style = new CategoryStyle;
         $category_styles = $category_style->getLists()->prepend('選択', '');
- 
-        return view('posts.create', ['category_styles' => $category_styles]);
+
+        return view('posts.create', compact('category_stages', 'category_styles'));
+
     }
 
     public function store(Request $request)
