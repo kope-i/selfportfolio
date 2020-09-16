@@ -30,4 +30,7 @@ Route::middleware('auth')->prefix('posts')->as('posts.')->group(function () {
     Route::post('{post}/delete', 'PostController@delete')->name('delete');
 });
 
+Route::get('/work', 'OverviewController@show');
+Route::get('/inspired', 'OverviewController@look');
+
 

@@ -24,8 +24,20 @@ class PostController extends Controller
         $category_style = new CategoryStyle;
         $category_styles = $category_style->getLists()->prepend('選択', '');
 
-        return view('posts.create', compact('category_stages', 'category_styles'));
+        /* compact関数を使った場合
+        return view('posts.create', compact('category_stages', 'category_styles')); --}}
+        */
+        /* withメソッドを使った場合
+        return view('posts.create')-> with([
+            "category_stages" => $category_stages,'category_styles' => $category_styles,
+        ]);
+        */
 
+        $category_view = [];
+        $category_view["category_stages"] = $category_stages;
+        $category_view["category_styles"] = $category_styles;
+
+        return view('posts.create', $category_view);
     }
 
     public function store(Request $request)
