@@ -19,13 +19,21 @@ class PostController extends Controller
 
     public function create()
     {
+        
         $category_stage = new CategoryStage;
         $category_stages = $category_stage->getLists()->prepend('選択', '');
+        
         $category_style = new CategoryStyle;
         $category_styles = $category_style->getLists()->prepend('選択', '');
+        
+        /*CategoryStage::getLists()->prepend('選択', '');
+        $category_stages = CategoryStage::orderBy('id', 'asc')->pluck('name', 'id');
 
         /* compact関数を使った場合
         return view('posts.create', compact('category_stages', 'category_styles')); --}}
+        ('posts.create', [
+            'category => $category
+        ])
         */
         /* withメソッドを使った場合
         return view('posts.create')-> with([
@@ -44,9 +52,15 @@ class PostController extends Controller
     {
         $post = new Post;
         $post->fill($request->all());
-        $post->user()->associate(Auth::user()); // ★
-        $post->save();
+        $post->user()->associate(Auth::user());
+        //dd($request->file('image'));
+        
+        $path = $request->file('image')->store('', ['disk' => 'images']);
+        $post->image = str_replace('images/','',$path);
 
+        $post->save();
+        //$pic_path = "/public/images/sample.jpg";
+        
         return redirect()->to('/'); // '/' へリダイレクト
     }
 

@@ -16,7 +16,7 @@ class CategoryStage extends Model
 
     public function getLists()
     {
-        $category_stages = CategoryStage::orderBy('id', 'asc')->pluck('name', 'id');
+        $category_stages = $this->orderBy('id', 'asc')->pluck('name', 'id');
 
         return $category_stages;
     }

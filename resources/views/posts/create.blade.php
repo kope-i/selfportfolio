@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-  <form method="post" action="{{ route('posts.store') }}">
+  <form method="post" action="{{ route('posts.store') }}" enctype="multipart/form-data">
     @csrf
     <input name="title" type="string" value="" />
     <input name="description" type="text" value="" />
+    <input name="image" type="file"  />
     <select name="category_mode" type="enum">
       <option value="works">WORKS</option>
       <option value="inspired">INSPIRED</option>
