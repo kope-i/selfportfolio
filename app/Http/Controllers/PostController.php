@@ -17,6 +17,20 @@ class PostController extends Controller
         return view('index', ['posts' => $posts]);
     }
 
+    public function works()
+    {
+        $posts = Post::with(['user'])->latest()->get();
+
+        return view('works', ['posts' => $posts]);
+    }
+
+    public function inspired()
+    {
+        $posts = Post::with(['user'])->latest()->get();
+
+        return view('inspired', ['posts' => $posts]);
+    }
+
     public function create()
     {
         
@@ -56,10 +70,8 @@ class PostController extends Controller
         //dd($request->file('image'));
         
         $path = $request->file('image')->store('', ['disk' => 'images']);
-        $post->image = str_replace('images/','',$path);
-
+        $post->image = "images/" . $path;
         $post->save();
-        //$pic_path = "/public/images/sample.jpg";
         
         return redirect()->to('/'); // '/' へリダイレクト
     }

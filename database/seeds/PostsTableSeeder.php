@@ -15,30 +15,30 @@ class PostsTableSeeder extends Seeder
         $dataSet = [
             [
                 'user_id' => 1,
-                'title' => 'title1',
-                'description' => 'description1',
+                'title' => '夜空',
+                'description' => '思いつきで書いた夜空',
                 'category_mode' => 'works',
                 'category_stage_id' => '1',
                 'category_style_id' => '1',
-                'image' => 'images/20200803100747image0.png'
+                'image' => 'images/74ACAE4A-AB1D-4E6D-BC62-AA5101005BD2.JPG'
             ],
             [
                 'user_id' => 1,
-                'title' => 'title2',
-                'description' => 'description2',
-                'category_mode' => 'works',
-                'category_stage_id' => '2',
-                'category_style_id' => '2',
+                'title' => '「Mommy」',
+                'description' => '昨日渋谷のシネクイントで鑑賞...',
+                'category_mode' => 'inspired',
+                'category_stage_id' => '3',
+                'category_style_id' => '3',
                 'image' => 'images/2020080310012425733.jpg'
             ],
             [
                 'user_id' => 2,
-                'title' => 'title_third',
-                'description' => 'description_third',
+                'title' => '生物の「死」',
+                'description' => 'DamienHirst....',
                 'category_mode' => 'inspired',
                 'category_stage_id' => '3',
-                'category_style_id' => '3',
-                'image' => 'images/DeSEyhrzSJm3qswkj3JDCXL0zGCH9rzaaV6mhuKU.png'
+                'category_style_id' => '1',
+                'image' => 'images/damienhirstimg.jpg'
             ],
 
         ];

@@ -37,13 +37,17 @@
                                 <a class="item" href="{{ route('register') }}">{{ __('Register') }}</a>
                             @endif
                         @else
-                            <div class="ui simple dropdown item">
-                                <a id="navbarDropdown" class="ui simple dropdown item" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="ui simple dropdown item" aria-labelledby="navbarDropdown">
-                                    <a class="ui simple dropdown item" href="{{ route('posts.create') }}">投稿する</a>
+                            <div class="ui dropdown">
+                                <div class="item">{{ Auth::user()->name }}</div>
+                                
+                                <div class="menu">
+                                    
+                                </div>
+                            </div>
+                                    <a class="item" href="{{ route('posts.create') }}">投稿する</a>
+                                    <a class="item" href="{{ route('works') }}">Input</a>
+                                    <a class="item" href="{{ route('inspired') }}">Output</a>
+                                    
                                     <a class="ui simple dropdown item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -54,6 +58,7 @@
                                         @csrf
                                     </form>
                                 </div>
+                            </div>
                             </li>
                         @endguest
                     </ul>

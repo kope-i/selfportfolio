@@ -1,27 +1,44 @@
 @extends('layouts.app')
 
 @section('content')
-  <form method="post" action="{{ route('posts.store') }}" enctype="multipart/form-data">
-    @csrf
-    <input name="title" type="string" value="" />
-    <input name="description" type="text" value="" />
-    <input name="image" type="file"  />
-    <select name="category_mode" type="enum">
-      <option value="works">WORKS</option>
-      <option value="inspired">INSPIRED</option>
-    </select>
-    <select id="category_stage_id" name="category_stage_id" type="integer">
-      @foreach($category_stages as $id => $name)
-        <option value="{{ $id }}">{{ $name }}</option>
-      @endforeach
-    </select>
-    
-    <select id="category_style_id" name="category_style_id" type="integer">
-      @foreach($category_styles as $id => $name)
-        <option value="{{ $id }}">{{ $name }}</option>
-      @endforeach
-    </select>
-    
-    <button type="submit">投稿する</button>
+  <form class="ui center aligned form" method="post" action="{{ route('posts.store') }}" enctype="multipart/form-data">
+  @csrf
+    <h1 class="ui center aligned header">New Post</h1>
+    <div class="ui container">
+    <div class="field">
+      <label>ひとこと</label>
+      <input type="string" name="title" placeholder="ひとこと" value=""/>
+    </div>
+    <div class="field">
+      <label>くわしく</label>
+      <input type="text" name="description" placeholder="くわしく" value=""/>
+    </div>
+
+    <input name="image" type="file"/>
+
+    <div class="small field">
+      <select name="category_mode" type="enum">
+        <option value="works">WORKS</option>
+        <option value="inspired">INSPIRED</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <select id="category_stage_id" name="category_stage_id" type="integer">
+        @foreach($category_stages as $id => $name)
+          <option value="{{ $id }}">{{ $name }}</option>
+        @endforeach
+      </select>
+    </div>
+
+    <div class="field">
+      <select id="category_style_id" name="category_style_id" type="integer">
+        @foreach($category_styles as $id => $name)
+          <option value="{{ $id }}">{{ $name }}</option>
+        @endforeach
+      </select>
+    </div>
+    <button class="ui button" type="submit">投稿する</button>
+    </div>
   </form>
 @endsection
