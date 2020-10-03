@@ -19,16 +19,23 @@ class PostController extends Controller
 
     public function works()
     {
-        $posts = Post::with(['user'])->latest()->get();
+        $posts = Post::with(['user'])->where('category_mode', '=', 'works')->latest()->get();
 
         return view('works', ['posts' => $posts]);
     }
 
     public function inspired()
     {
-        $posts = Post::with(['user'])->latest()->get();
+        $posts = Post::with(['user'])->where('category_mode', '=', 'inspired')->latest()->get();
 
         return view('inspired', ['posts' => $posts]);
+    }
+
+    public function show(Post $post)
+    {    
+        $posts = Post::with(['user'])->latest()->get();
+
+        return view('show', ['post' => $post]);
     }
 
     public function create()
@@ -74,6 +81,22 @@ class PostController extends Controller
         $post->save();
         
         return redirect()->to('/'); // '/' へリダイレクト
+    }
+
+    public function edit(Request $request)
+    {
+        $post = Post::find($request->id);
+        return view('edit', ['post' => $post]); 
+    }
+
+    public function update(Request $request)
+    {
+        $post = Post::find($request->id);
+        $post->title = $request->title;
+        $post->description = $request->description;
+
+        $post->save();
+        return redirect('/');
     }
 
     public function delete(Post $post)

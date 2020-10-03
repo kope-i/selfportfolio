@@ -17,6 +17,7 @@
     <input name="image" type="file"/>
 
     <div class="small field">
+      <label>Works or Inspired</label>
       <select name="category_mode" type="enum">
         <option value="works">WORKS</option>
         <option value="inspired">INSPIRED</option>
@@ -24,6 +25,7 @@
     </div>
 
     <div class="field">
+      <label>制作段階</label>
       <select id="category_stage_id" name="category_stage_id" type="integer">
         @foreach($category_stages as $id => $name)
           <option value="{{ $id }}">{{ $name }}</option>
@@ -32,6 +34,7 @@
     </div>
 
     <div class="field">
+      <label>ジャンル</label>
       <select id="category_style_id" name="category_style_id" type="integer">
         @foreach($category_styles as $id => $name)
           <option value="{{ $id }}">{{ $name }}</option>

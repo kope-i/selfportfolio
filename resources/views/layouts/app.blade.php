@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" />
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw==" crossorigin="anonymous"></script>
+
+    @stack('css')
 </head>
 <body>
     <div id="app">
@@ -45,8 +47,8 @@
                                 </div>
                             </div>
                                     <a class="item" href="{{ route('posts.create') }}">投稿する</a>
-                                    <a class="item" href="{{ route('works') }}">Input</a>
-                                    <a class="item" href="{{ route('inspired') }}">Output</a>
+                                    <a class="item" href="{{ route('works') }}">Works</a>
+                                    <a class="item" href="{{ route('inspired') }}">Inspired</a>
                                     
                                     <a class="ui simple dropdown item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -68,6 +70,7 @@
 
         <main class="py-4">
             @yield('content')
+            @yield('edit')
         </main>
     </div>
 </body>

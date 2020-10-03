@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<h2 class="ui center aligned header"> </h1>
 <div class="ui middle aligned center aligned grid">
     <div class="eight wide column">
       <h2 class="ui green image header">
