@@ -37,3 +37,40 @@
   app/Http/Requests/
 
   http://localhost:8000/
+
+
+  <div class="ui center container">
+    <div class="ui card">
+      <div class="content">
+        <div class="header">{{ $post->title }}</div>
+        <div class="description">{{ $post->description }}</div>
+        <a class="image" a href="{{ route('posts.show', $post->id) }}">
+            <img src="{{ $post->image }}">
+        </a>
+        <p class="card-text"><a href="{{ route('posts.edit', $post->id) }}">編集する</a></p>
+        <div class="content">
+          <form method="POST" action="{{ route('posts.delete', $post->id) }}">
+            @csrf
+            <button type="submit" class="btn btn-danger">削除</button>
+          </form>
+      </div>
+    </div>
+  </div>
+
+
+
+  $post = Post::find($request->id);
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->category_mode = $request->category_mode;
+        $post->category_stage_id = $request->category_stage_id;
+        $post->category_style_id = $request->category_style_id;
+        $post->image = $request->image;
+
+
+         <div class="header">{{ $post->title }}</div>
+        <div class="description">{{ $post->description }}
+          <a class="image" a href="{{ route('posts.show', $post->id) }}">
+              <img src= "{{ asset($post->image) }}" width="100px" height="100px">
+          </a>
+        </div>

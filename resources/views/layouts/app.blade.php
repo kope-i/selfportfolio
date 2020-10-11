@@ -46,14 +46,14 @@
                                     
                                 </div>
                             </div>
-                                    <a class="item" href="{{ route('posts.create') }}">投稿する</a>
+                                    <a class="item" href="{{ route('posts.create') }}">New Post</a>
                                     <a class="item" href="{{ route('works') }}">Works</a>
                                     <a class="item" href="{{ route('inspired') }}">Inspired</a>
                                     
                                     <a class="ui simple dropdown item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('ログアウト') }}
+                                        {{ __('Logout') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

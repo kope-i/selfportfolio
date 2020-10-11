@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PostController@index');
+Route::get('/', 'PostController@index')->name('index');
 
 Auth::routes();
 
@@ -24,7 +24,6 @@ Route::get('/users/{id}', 'UserController@show');
 
 Route::middleware('auth')->group(function () {
     Route::get('me', 'UserController@edit');
-    Route::post('me', 'UserController@update')->name('users.update');
 });
 
 Route::prefix('posts')->as('posts.')->group(function() {

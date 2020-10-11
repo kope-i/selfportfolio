@@ -1,18 +1,36 @@
 @extends('layouts.app')
 
 @section('content')
-  
+    <h1 class="ui center aligned header"> </h1>
+    <h1 class="ui center aligned header">Inspired</h1>
+    <div class="ui equal width center aligned padded grid">
+    <div class="ui grid container">
+    <div class="ui row">
     @foreach($posts as $post)
-    <div class="ui card">
-      <div class="content">
-        <div class="header">{{ $post->title }}</div>
-        <div class="description">{{ $post->description }}</div>
-        <img src="{{ $post->image }}"  width="50%" height="50%">
-        <form method="POST" action="{{ route('posts.delete', $post->id) }}">
-            @csrf
-            <button type="submit" class="btn btn-danger">削除</button>
-          </form>
-      </div>    
+    <div class="four wide column">
+      <div class="ui link cards">
+        <div class="orange card">
+          <a class="image" a href="{{ route('posts.show', $post->id) }}">
+            <img src="{{ $post->image }}" width="100px" height="100px">
+          </a>
+          <div class="content">
+            <div class="header">{{ $post->title }}</div>
+            <div class="meta">
+              <a>{{ $post->created_at }}</a>
+            </div>
+          </div>
+          <div class="extra content">
+            <span>
+              <i class="orange tags icon"></i>
+              <a class="ui orange basic label">{{ $post->category_mode }}</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>  
     @endforeach
-  
+    {{ $posts->links('vendor.pagination.semantic-ui') }}
+    </div>
+    </div>
+    </div> 
 @endsection

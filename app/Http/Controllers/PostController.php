@@ -12,21 +12,21 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::with(['user'])->latest()->get();
+        $posts = Post::with(['user'])->latest()->paginate(8);
 
         return view('index', ['posts' => $posts]);
     }
 
     public function works()
     {
-        $posts = Post::with(['user'])->where('category_mode', '=', 'works')->latest()->get();
+        $posts = Post::with(['user'])->where('category_mode', '=', 'works')->latest()->paginate(8);
 
         return view('works', ['posts' => $posts]);
     }
 
     public function inspired()
     {
-        $posts = Post::with(['user'])->where('category_mode', '=', 'inspired')->latest()->get();
+        $posts = Post::with(['user'])->where('category_mode', '=', 'inspired')->latest()->paginate(8);
 
         return view('inspired', ['posts' => $posts]);
     }
@@ -83,21 +83,43 @@ class PostController extends Controller
         return redirect()->to('/'); // '/' へリダイレクト
     }
 
-    public function edit(Request $request)
+    public function edit(Post $post)
     {
-        $post = Post::find($request->id);
-        return view('edit', ['post' => $post]); 
+        
+
+        $category_stage = new CategoryStage;
+        $category_stages = $category_stage->getLists()->prepend('選択', '');
+        
+        $category_style = new CategoryStyle;
+        $category_styles = $category_style->getLists()->prepend('選択', '');
+ 
+
+        $category_view = [];
+        $category_view["category_stages"] = $category_stages;
+        $category_view["category_styles"] = $category_styles;
+        $category_view["post"] = $post;
+
+        return view('edit', $category_view);
     }
 
-    public function update(Request $request)
+    public function update(Request $request,Post $post)
     {
-        $post = Post::find($request->id);
+
         $post->title = $request->title;
         $post->description = $request->description;
+        $post->category_mode = $request->category_mode;
+        $post->category_stage_id = $request->category_stage_id;
+        $post->category_style_id = $request->category_style_id;
+        $post->image = $request->image;
+
+        $path = $request->file('image')->store('', ['disk' => 'images']);
+        $post->image = "images/" . $path;
 
         $post->save();
-        return redirect('/');
+
+        return redirect()->to('/');
     }
+
 
     public function delete(Post $post)
     {
