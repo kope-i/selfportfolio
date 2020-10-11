@@ -76,8 +76,8 @@ class PostController extends Controller
         $post->user()->associate(Auth::user());
         //dd($request->file('image'));
         
-        $path = $request->file('image')->store('', ['disk' => 'images']);
-        $post->image = "images/" . $path;
+        $path = base64_encode(file_get_contents($request->file('image')->getRealPath()));
+        $post->image = $path;
         $post->save();
         
         return redirect()->to('/'); // '/' へリダイレクト

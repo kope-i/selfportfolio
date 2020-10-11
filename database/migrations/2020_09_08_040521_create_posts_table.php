@@ -21,7 +21,7 @@ class CreatePostsTable extends Migration
             $table->enum('category_mode', ['works', 'inspired']);
             $table->unsignedBigInteger('category_stage_id');
             $table->unsignedBigInteger('category_style_id');
-            $table->string('image');
+            $table->longText('image');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -14,7 +14,7 @@
         @if ($post->category_mode === "works")
         <div class="teal card">
           <a class="image" a href="{{ route('posts.show', $post->id) }}">
-            <img src="{{ $post->image }}" class= img-responsive style= height: 22px; width: 100px;>
+            <img src="data:image;base64,{{ $post->image }}"/>
           </a>
           <div class="content">
             <div class="header">{{ $post->title }}</div>
@@ -32,7 +32,7 @@
         @else
         <div class="orange card">
           <a class="image" a href="{{ route('posts.show', $post->id) }}">
-            <img src="{{ $post->image }}" width="100px" height="100px">
+            <img src="data:image;base64,{{ $post->image }}">
           </a>
           <div class="content">
             <div class="header">{{ $post->title }}</div>
@@ -51,7 +51,9 @@
     </div>
     </div>
     @endforeach
+    <div class="ui container">
     {{ $posts->links('vendor.pagination.semantic-ui') }}
+    </div>
     </div>
     </div>
     </div>
