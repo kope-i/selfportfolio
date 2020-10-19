@@ -12,6 +12,7 @@ class PostController extends Controller
 {
     public function index()
     {
+        $login_id = Auth::id();
         $posts = Post::with(['user'])->latest()->paginate(8);
 
         return view('index', ['posts' => $posts]);

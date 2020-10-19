@@ -14,7 +14,7 @@
                     <div class="ui left icon input">
                         <i class="user icon">   
                         </i>
-                        <input id="email" type="email" name="email" placeholder="E-mail address"  class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <input id="email" type="email" name="email" placeholder="E-mail Address"  class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                         @error('email')
                             <span class="invalid-feedback" role="alert">
