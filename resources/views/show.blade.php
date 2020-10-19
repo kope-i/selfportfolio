@@ -11,7 +11,7 @@
       @if ($post->category_mode === "works")
       <div class="ui centered teal card">
       <a class="image" a href="{{ route('posts.show', $post->id) }}">
-            <img src="data:image;base64,{{ asset($post->image) }}" width="10px" height="10px">
+            <img src="data:image;base64,{{ $post->image }}" width="10px" height="10px">
           </a>
           <div class="content">
             <div class="header">{{ $post->title }}</div>
@@ -57,7 +57,7 @@
           @else
           <div class="ui centered orange card">
           <a class="image" a href="{{ route('posts.show', $post->id) }}">
-            <img src="data:image;base64,{{ asset($post->image) }}" width="10px" height="10px">
+            <img src="data:image;base64,{{ $post->image }}" width="10px" height="10px">
           </a>
           <div class="content">
             <div class="header">{{ $post->title }}</div>
