@@ -11,7 +11,7 @@
       <div class="ui link cards">
         <div class="orange card">
           <a class="image" a href="{{ route('posts.show', $post->id) }}">
-            <img src="{{ $post->image }}" width="100px" height="100px">
+            <img src="data:image;base64,{{ $post->image }}" width="100px" height="100px">
           </a>
           <div class="content">
             <div class="header">{{ $post->title }}</div>
