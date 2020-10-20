@@ -11,6 +11,8 @@
 - git clone https://github.com/kope-i/selfportfolio
 - composer install
 - php artisan serve
+- php artisan migrate --seed
+
 
 ## Usage
 - Access to http://localhost:8000/register
