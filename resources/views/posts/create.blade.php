@@ -6,11 +6,11 @@
     <h1 class="ui center aligned header">New Post</h1>
     <div class="ui container">
     <div class="field">
-      <label>ひとこと</label>
+      <label>タイトル</label>
       <input type="string" name="title" placeholder="ひとこと" value=""/>
     </div>
     <div class="field">
-      <label>くわしく</label>
+      <label>説明</label>
       <input type="text" name="description" placeholder="くわしく" value=""/>
     </div>
 

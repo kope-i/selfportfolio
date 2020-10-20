@@ -18,8 +18,9 @@
 - Access to http://localhost:8000/register
 - Register as a demo user
     - Name: John
-    - E-mail Address: john@example.com
+    - E-mail Address: John@example.com
     - Password: 'password'
+    - Confirm Password: 'password
 
 ## DEMO
 
@@ -29,6 +30,7 @@
   ![Features](https://user-images.githubusercontent.com/68506859/96332297-0a61f080-109e-11eb-96b9-c128d893a8f1.png)
   
 ## Note
-- 画像はbase64形式による保存です。
+- You'd save image file in base64 format.
+
 
 
