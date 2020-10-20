@@ -12,22 +12,21 @@ class PostController extends Controller
 {
     public function index()
     {
-        $login_id = Auth::id();
-        $posts = Post::with(['user'])->latest()->paginate(8);
+        $posts = Post::with(['user'])->where('user_id', '=', Auth::id())->latest()->paginate(8);
 
         return view('index', ['posts' => $posts]);
     }
 
     public function works()
     {
-        $posts = Post::with(['user'])->where('category_mode', '=', 'works')->latest()->paginate(8);
+        $posts = Post::with(['user'])->where('user_id', '=', Auth::id())->where('category_mode', '=', 'works')->latest()->paginate(8);
 
         return view('works', ['posts' => $posts]);
     }
 
     public function inspired()
     {
-        $posts = Post::with(['user'])->where('category_mode', '=', 'inspired')->latest()->paginate(8);
+        $posts = Post::with(['user'])->where('user_id', '=', Auth::id())->where('category_mode', '=', 'inspired')->latest()->paginate(8);
 
         return view('inspired', ['posts' => $posts]);
     }
