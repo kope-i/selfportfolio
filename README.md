@@ -23,7 +23,11 @@
     - Confirm Password: 'password
 
 ## DEMO
+- Add Post
   ![selfportfoliodemo1](https://user-images.githubusercontent.com/68506859/96557751-a76a9680-12f5-11eb-9cfc-f7c54f9fd6ed.gif)
+
+- Check Post
+  ![selfportfoliodemo2](https://user-images.githubusercontent.com/68506859/96558742-15fc2400-12f7-11eb-8811-5e5189f96218.gif)
 
 
 ## Features
