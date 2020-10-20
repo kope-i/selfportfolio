@@ -23,7 +23,7 @@
     - Confirm Password: 'password
 
 ## DEMO
-
+  ![selfportfoliodemo1](https://user-images.githubusercontent.com/68506859/96557751-a76a9680-12f5-11eb-9cfc-f7c54f9fd6ed.gif)
 
 
 ## Features
